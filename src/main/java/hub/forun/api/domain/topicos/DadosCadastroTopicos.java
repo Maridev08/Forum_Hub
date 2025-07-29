@@ -1,17 +1,22 @@
 package hub.forun.api.domain.topicos;
 
-import hub.forun.api.domain.curso.DadosCurso;
-import hub.forun.api.domain.repostas.DadosResposta;
-import hub.forun.api.domain.usuario.DadosUsuario;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import hub.forun.api.domain.usuario.Usuario;
+import jakarta.validation.constraints.NotBlank;
 
-public record DadosCadastroTopicos(String titulo,
+public record DadosCadastroTopicos(
+                                    @NotBlank(message = "Campo título obrigatório")
+                                    String titulo,
+
+                                   @NotBlank(message = "Campo mensagem obrigatório")
                                    String mensagem,
-                                   LocalDateTime dataCriacao,
-                                   Status status,
-                                   DadosUsuario autor,
-                                   DadosCurso curso,
-                                   List<DadosResposta> resposta) {
+
+                                   @NotBlank(message = "Campo curso obrigatório")
+                                   String curso
+
+
+
+
+
+                                   ) {
 }
